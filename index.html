@@ -1,40 +1,169 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<title>reveal.js</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<link rel="stylesheet" href="dist/reset.css" />
+	<link rel="stylesheet" href="dist/reveal.css" />
+	<link rel="stylesheet" href="dist/theme/ipp.css" />
+	<script src="theme-config.js"></script>
+	<!-- Load the configuration file -->
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<!-- Slides -->
+		<div class="slides">
+			<!-- Slide 1 -->
+			<section class="ippfrontpage">
+				<div class="title-box">
+					<h1>IPP Reveal.js template</h1>
+				</div>
+			</section>
+			<!-- Slide 2 -->
+			<section class="ipp-slide">
+				<h1 class="ipp-slide-title">Slide Title</h1>
+				<div class="content">
+					<div class="left-column">
+						<h2>Left Column Content</h2>
+						<p>More details about the left column...</p>
+						$I=\int\limits_0^\infty f(x)\ \mathrm{d}x$
+					</div>
+					<div class="right-column">
+						<h2>Right Column Content</h2>
+						<p>More details about the right column...</p>
+						<!-- <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"></img> -->
+						<video controls width="800" height="450">
+							<source
+								src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+								type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+				</div>
+			</section>
+			<!-- Slide 3 -->
+			<section class="ipp-slide">
+				<h1 class="ipp-slide-title">Slide 3</h1>
+				<div class="content">
+					<div class="left-column">
+					<h2>H2 title</h2>
+					<p>More details about the left column...</p>
+						$I=\int\limits_0^\infty f(x)\ \mathrm{d}x$
+					</div>
+				</div>
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			width: 1920,
+			height: 1080,
+			margin: 0.0,
+			minScale: 0.2,
+			maxScale: 1.5,
+			controls: true,
+			progress: true,
+			slideNumber: true,
+			showSlideNumber: "all",
+			// jumpToSlide: true,
+			transition: "none", // none/fade/slide/convex/concave/zoom
+			// Transition speed
+			transitionSpeed: "fast", // default/fast/slow
+			// Learn about plugins: https://revealjs.com/plugins/
+			autoPlayMedia: true,
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX],
+		});
+	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			// Function to add a logo to a specific class container
+			function addLogo(src, alt, classes, height) {
+				const img = document.createElement("img");
+				img.src = src;
+				img.alt = alt;
+				img.className = classes;
+				img.style.height = height;
+				return img;
+			}
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+			// Function to create and add circles
+			function addCircles(container, count, className) {
+				if (!container.querySelector("." + className)) {
+					// Check if the circle container already exists
+					const circleContainer = document.createElement("div");
+					circleContainer.className = className;
+					for (let i = 0; i < count; i++) {
+						const circle = document.createElement("div");
+						circle.className = "circle";
+						circleContainer.appendChild(circle);
+					}
+					container.appendChild(circleContainer);
+				}
+			}
+
+			const slide = document.querySelector(".ipp-slide");
+			if (slide) {
+				slide.appendChild(
+					addLogo(
+						"https://www.myscience.org/var/mysciencede/image/logo/mpg.svg",
+						"Institution Logo",
+						"ipp-slide-logo-topright",
+						"120px"
+					)
+				);
+			}
+
+			const frontpage = document.querySelector(".ippfrontpage");
+
+			if (frontpage) {
+				// Add circles
+				addCircles(frontpage, 234, "circle-container-topleft");
+				addCircles(frontpage, 234, "circle-container-bottomright");
+				// Create and append logos
+				frontpage.appendChild(
+					addLogo(
+						"https://idw-online.de/de/institutionlogo29710",
+						"Institution Logo",
+						"ipp-frontpage-logo-topright",
+						"120px"
+					)
+				);
+				frontpage.appendChild(
+					addLogo(
+						"https://ccfe.ukaea.uk/wp-content/uploads/2019/06/EUROfusion-LOGO-WEB_003399.png",
+						"Eurofusion Logo",
+						"logo2",
+						"80px"
+					)
+				);
+				frontpage.appendChild(
+					addLogo(
+						"https://ec.europa.eu/regional_policy/images/information-sources/logo-download-center/eu_flag.jpg",
+						"EU Flag",
+						"logo3",
+						"80px"
+					)
+				);
+			}
+		});
+	</script>
+</body>
+
 </html>

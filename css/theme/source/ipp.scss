@@ -1,0 +1,187 @@
+/**
+ * Custom theme for Reveal.js presentations.
+ *
+ * Copyright (C) 2021 Chen Hui Jing, https://chenhuijing.com/
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url("fonts/jones/jones.css");
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: "Arial"; //, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+// $mainColor: #3c3744;
+$headingFont: "Arial"; //, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+$headingColor: black;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$headingFontWeight: bold;
+$backgroundColor: #797171;
+$ippGreenColor: #086c64;
+
+$linkColor: #3066be;
+$linkColorHover: darken($linkColor, 20%);
+$selectionBackgroundColor: $linkColor;
+$selectionColor: #b4c5e4;
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Customised styles for this presentation -----
+.reveal {
+  .logo2,
+  .logo3 {
+    position: absolute; /* Position relative to their parent */
+    bottom: 8%;
+  }
+
+  .logo2 {
+    left: 10%; /* Positions the first logo to the left */
+  }
+
+  .logo3 {
+    left: 25%; /* Positions the second logo to the right */
+  }
+  .ipp-slide-logo-topright {
+    position: absolute;
+    top: 5%;
+    right: 2%;
+  }
+  .ippfrontpage {
+    position: relative;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    .title-box {
+      width: 77.5%; /* Adjusted width */
+      height: 50%; /* Adjusted height */
+      background-color: #086c64;
+      text-align: left;
+      position: relative;
+      top: 30%; /* Moves the box down */
+      left: 11%;
+    }
+    .title-box h1 {
+      color: #ffffff; /* White color for text */
+      font-size: 48px;
+      font-weight: bold;
+      position: relative;
+      top: 10%; // Moves the text down
+      left: 2.5%; // Moves the text to the right
+    }
+
+    .ipp-frontpage-logo-topright {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .circle-container-topleft,
+    .circle-container-bottomright {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(18, 20%); // Circle size and spacing
+      grid-template-rows: repeat(12, 30%);
+      z-index: -1;
+    }
+
+    .circle-container-topleft {
+      top: 21%;
+      left: 8%;
+    }
+
+    .circle-container-bottomright {
+      bottom: 35%;
+      right: 24%;
+    }
+
+    .circle {
+      width: 5px;
+      height: 5px;
+      background-color: white;
+      border-radius: 50%;
+      border: 2px solid #d4dc3c;
+    }
+  }
+  .ipp-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    height: 100%;
+    width: 100%;
+    color: black;
+    font-size: 48px;
+  }
+
+  .ipp-slide .content {
+    // Note the space, indicating that 'content' is a descendant of '.ipp-slide'
+    padding: 20px;
+    background-color: #fff;
+    // border: 10px solid #ccc; // Show border
+    color: #000;
+    font-size: 16px;
+    width: 90%;
+    height: 65%;
+    position: absolute;
+    top: 20%;
+    left: 4%;
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: 36px;
+    display: flex;  /* Establishes a flex container */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between; /* Aligns children with space between them */
+    align-items: start; /* Aligns items to the start of the flex container */
+  }
+
+  .ipp-slide h2 {
+    // Note the space, indicating that 'content' is a descendant of '.ipp-slide'
+    font-size: 48px;
+  }
+
+  .ipp-slide-title {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    color: #086c64;
+    font-size: 64px;
+    font-weight: bold;
+  }
+
+  .ipp-slide-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+  }
+
+  .ipp-slide .left-column, .ipp-slide .right-column {
+    flex: 0 0 50%; /* flex-grow, flex-shrink, flex-basis */
+    box-sizing: border-box; /* Includes padding and border in the element's total width */
+  }
+  
+  .ipp-slide .left-column {
+    padding-right: 20px; /* Smaller padding to avoid distortion but maintain spacing */
+  }
+  
+  .ipp-slide .right-column {
+    padding-left: 20px; /* Adds spacing between columns */
+  }
+}
